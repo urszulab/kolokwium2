@@ -7,7 +7,7 @@ using System.Globalization;
 
 
 namespace kolokwium2
-{    
+{       
     class Program
     {
         class Ingredient: IComparable<Ingredient>
@@ -37,9 +37,7 @@ namespace kolokwium2
             public int CompareTo(Ingredient other)
             {
                 return this.nazwaIngredienta.CompareTo(other.nazwaIngredienta);
-
-            }
-            
+            }            
         }
 
         class Przepis
@@ -56,8 +54,7 @@ namespace kolokwium2
             }
             
             public void UstawNazweICzas(string naz, int czas)
-            {
-                
+            {       
                 this.nazwa = naz;
                 this.czasPrzygotowania = czas;
             }
@@ -73,8 +70,7 @@ namespace kolokwium2
                 {
                     return "";
                 }
-                return "Przepis: " + '\n' + przepis + '\n' + "Suma: " + this.suma;
-                
+                return "Przepis: " + '\n' + przepis + '\n' + "Suma: " + this.suma;           
             }
 
             public bool CzyCzas()
@@ -91,6 +87,10 @@ namespace kolokwium2
                 return this.ingredienci.Count;
             }
 
+            public void ZmianaNazwy(string naz)
+            {
+                this.nazwa = naz;
+            }
         }
         
         abstract class Zamowienie
@@ -99,7 +99,7 @@ namespace kolokwium2
 
             public virtual bool PoprawnyCzas()
             {
-                if (DateTime.Compare(this.czasDostawy, DateTime.Now) < 0) 
+                if (DateTime.Compare(this.czasDostawy, DateTime.Now) < 0) // jesli pierwsze wydarza sie wczensiej niz drugie to okej
                 {
                     return true;
                 }
@@ -108,7 +108,6 @@ namespace kolokwium2
             public void UstawCzasDostawy(DateTime data)
             {
                 this.czasDostawy = data;
-
             }
         }
 
@@ -132,6 +131,7 @@ namespace kolokwium2
 
         static void Main(string[] args)
         {
+            Przepis potrawa = new Przepis();
             string nazwa_przepisuu;
             int czaas;
             Console.WriteLine("Podaj nazwe przepisu:");
@@ -148,7 +148,7 @@ namespace kolokwium2
                 Console.WriteLine("Prosze podac czas przygotowania wiekszy od 0 i mniejszy od 300 minut");
                 czaas = Convert.ToInt32(Console.ReadLine());
             }
-
+            potrawa.ZmianaNazwy(nazwa_przepisuu);
         }
     }
 }
