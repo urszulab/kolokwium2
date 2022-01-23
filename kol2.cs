@@ -1,4 +1,4 @@
-// Urszula Bańkowska  II kolokwium
+// Urszula Bańkowska  II kolokwium  wariant 6
 using System;
 using System.Collections.Generic;
 using System.Collections;
