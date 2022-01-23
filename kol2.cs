@@ -1,3 +1,4 @@
+// Urszula Bańkowska  II kolokwium
 using System;
 using System.Collections.Generic;
 using System.Collections;
@@ -6,7 +7,7 @@ using System.Globalization;
 
 
 namespace kolokwium2
-{       // klasa Program
+{    
     class Program
     {
         class Ingredient: IComparable<Ingredient>
@@ -41,7 +42,6 @@ namespace kolokwium2
             
         }
 
-        // klasa Przepis
         class Przepis
         {
             private string nazwa;
@@ -93,14 +93,13 @@ namespace kolokwium2
 
         }
         
-        //klasa Zamowienie - abstrakcyjna
         abstract class Zamowienie
         {
             protected DateTime czasDostawy;
 
             public virtual bool PoprawnyCzas()
             {
-                if (DateTime.Compare(this.czasDostawy, DateTime.Now) < 0) // jesli pierwsze wydarza sie wczensiej niz drugie to okej
+                if (DateTime.Compare(this.czasDostawy, DateTime.Now) < 0) 
                 {
                     return true;
                 }
@@ -113,7 +112,6 @@ namespace kolokwium2
             }
         }
 
-        // klasy dzidziczone po Zamowieniu
         class NaMiejscu: Zamowienie
         {
 
